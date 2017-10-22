@@ -1,0 +1,9 @@
+match_key : Tpserv
+calc_key  : Valor
+patterns  :
+    internet: /Wap/
+    sms: /SMS/
+    local_cellphone: /Locais para Celulares/
+    local_phone: /Locais para Fixo/
+    long_distance_cellphone: /Longa Distância/
+    long_distance_phone: /Longa Distância Fixo/
