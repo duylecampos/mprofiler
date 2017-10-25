@@ -23,12 +23,12 @@ describe Mprofiler::Processor do
         processor = Mprofiler::Processor.new parsed_table
         processed_data = processor.process
         expect(processed_data).to match({
-            'local_cellphone' => 25.41, 
-            'local_phone' => 2.99, 
-            'long_distance_cellphone' => 14.0, 
-            'long_distance_phone' => 8.25, 
-            'sms' => 0.49, 
-            'internet' => 19.59
+            'local_cellphone' => 1621, 
+            'local_phone' => 219, 
+            'long_distance_cellphone' => 880, 
+            'long_distance_phone' => 1405,
+            'sms' => 2, 
+            'internet' => 9.896830494140625
         })
     end
 
