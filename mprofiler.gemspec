@@ -6,7 +6,6 @@ require 'mprofiler/version'
 Gem::Specification.new do |spec|
   spec.name          = "mprofiler"
   spec.version       = Mprofiler::VERSION
-  spec.executables << 'mprofiler'
   spec.authors       = ["Duyle Campos"]
   spec.email         = ["duylecampos@gmail.com"]
   spec.description   = %q{Proccess minerador files}
@@ -15,7 +14,7 @@ Gem::Specification.new do |spec|
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
-  spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
+  spec.executables   = ['mprofiler']
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 

@@ -3,9 +3,10 @@ require 'csv'
 
 describe Mprofiler::Processor do
     it 'verify processed tree format' do
+        config = Mprofiler::Configuration.new
         parser = Mprofiler::Parser.new './spec/fixtures/sample.csv'
         parsed_table = parser.parse
-        processor = Mprofiler::Processor.new parsed_table
+        processor = Mprofiler::Processor.new parsed_table, config
         processed_data = processor.process
         expect(processed_data).to include(
             'local_cellphone',
@@ -18,9 +19,10 @@ describe Mprofiler::Processor do
     end
 
     it 'assert processed value' do
+        config = Mprofiler::Configuration.new
         parser = Mprofiler::Parser.new './spec/fixtures/sample.csv'
         parsed_table = parser.parse
-        processor = Mprofiler::Processor.new parsed_table
+        processor = Mprofiler::Processor.new parsed_table, config
         processed_data = processor.process
         expect(processed_data).to match({
             'local_cellphone' => 1621, 

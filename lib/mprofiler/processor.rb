@@ -1,10 +1,11 @@
 module Mprofiler
 
     class Processor
-        attr_accessor :datatable, :tree
+        attr_accessor :datatable, :tree, :configuration
 
-        def initialize(datatable)
+        def initialize(datatable, configuration)
             @datatable = datatable
+            @configuration = configuration
             @tree = { 
                 "local_cellphone" => 0, 
                 "local_phone" => 0, 
@@ -25,9 +26,9 @@ module Mprofiler
     private
 
         def process_row(row)
-            Configuration::config['keys'].each do |key, data|
-                if row[Configuration::config['match_key']] =~ data['pattern']
-                    populate_tree(key, row[Configuration::config['calc_key']], data['process_method'])
+            configuration.config['keys'].each do |key, data|
+                if row[configuration.config['match_key']] =~ data['pattern']
+                    populate_tree(key, row[configuration.config['calc_key']], data['process_method'])
                 end
             end
         end
