@@ -1,0 +1,21 @@
+match_key : new_match_key
+calc_key  : new_calc_key
+keys      : 
+    internet:
+        pattern: /new_pattern/
+        process_method: count_occurrences
+    sms:
+        pattern: /SMS/
+        process_method: count_occurrences
+    local_cellphone:
+        pattern: /Locais.*Celulares/
+        process_method: decimal_value
+    local_phone:
+        pattern: /Locais.*Fixos/
+        process_method: decimal_value
+    long_distance_cellphone:
+        pattern: /Longa Distância.*Celulares/
+        process_method: decimal_value
+    long_distance_phone:
+        pattern: /Longa Distância/
+        process_method: decimal_value

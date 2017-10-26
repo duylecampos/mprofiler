@@ -1,0 +1,24 @@
+#!/usr/bin/env ruby
+require 'mprofiler'
+
+csv_file = ARGV[0]
+config_file = ARGV[1]
+
+config = Mprofiler::Configuration.new
+if config_file
+    config.configure_with(config_file)
+end
+
+if csv_file and File.exist? csv_file
+    parser = Mprofiler::Parser.new csv_file
+    datatable = parser.parse
+
+    processor = Mprofiler::Processor.new datatable, config
+    processed_data = processor.process
+
+    data_to_display = Mprofiler::Viewer.format processed_data
+
+    puts data_to_display
+else
+    puts 'CSV file couldn\'t be found.'
+end
